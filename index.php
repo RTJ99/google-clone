@@ -34,6 +34,8 @@
     
     <?php
 
+    include('simple_html_dom.php');
+
         $search = $_GET['results'];
         if(isset($_GET['results']) && $_GET['results'] != "")
             {
@@ -48,17 +50,14 @@
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            //curl_setopt($ch, CURLOPT_REFERER, 'http://www.google.com');
             $body = curl_exec($ch);
             curl_close($ch);
-            echo $body;
-            // now, process the JSON string
-            //$json = json_decode($body);
-            // print out the Array
+            $domResult = new simple_html_dom();
+            $domResult->load($body);
+
+            foreach($domResult->find('a[href^=/url?]') as $link)
             
-            //print_r($json);
-            
-            // now have some fun with the results...
+            echo $link ;
         }
 
 ?>
