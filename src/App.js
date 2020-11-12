@@ -38,24 +38,74 @@ function App() {
     );
     console.log(state.s);
   }
+  if(state.results.length >0){
+    return(
+    <div className="">
+          <Results results = {state.results}/>
+          
+          </div>
+    );
+    
+  }
+  else{
+
+
   
   return (
     <div className="App">
       <header className="App-header">
-      <div id="container">
-    
-        <div className="g_image" >
-        <img src="img/google-logo.png" height="95" width="260"   alt=" google logo "/>
-          </div>
-        </div>
+        <nav className="clearfix">
+            <ul className="left">
+              
+            </ul>
+
+            <ul className="right">
+              <li><a href="#">Gmail</a></li>
+              <li><a href="#">Images</a></li>
+              <li className="menu"><a href="#">Menu</a></li>
+              
+              <li className="profile-pic"><a href="#">Profile Pic</a></li>
+            </ul>
+        </nav>
+        <div className="mainContainer">
+
         
+            <img className="logo" src="img/logo.png" alt="Google Logo" />
+
+            
+
+            
+          </div>
       </header>
+
       <main>
-      <Search handleInput= {handleInput} search={search}/>
-      <Results results = {state.results}/>
+        
+        
+      
+        <Search handleInput= {handleInput} search={search}/>
+        
+        
       </main>
+        <footer>
+        <p className="location">Zimbabwe</p>
+        <nav className="clearfix">
+          <ul className="left">
+            <li><a href="#">Advertising</a></li>
+            <li><a href="#">Business</a></li>
+            <li><a href="#">About</a></li>
+              <li><a href="#">How Search Works</a></li>
+          </ul>
+
+          <ul className="right">
+            <li><a href="#">Privary</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Settings</a></li>
+          </ul>
+        </nav>
+      </footer>
     </div>
   )
+}
 }
 
 export default App
