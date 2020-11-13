@@ -1,6 +1,7 @@
 
 import React,{ useState } from "react"
 import Search from "./components/Search"
+import Results from "./components/Results"
 import axios from "axios"
 function App() {
   const [state, setState] = useState(
@@ -12,11 +13,19 @@ function App() {
   );
 
   
-  const apiurl ="http://www.omdbapi.com/?apikey=377f16f7";
+  const apiurl ="https://www.googleapis.com/customsearch/v1?key=AIzaSyCzmYKdspQYRDwr_MRfbUpcyXVMsQ5bPX4&cx=9fd12759a063b29d1&q="
+    ;
   const search = (e) => {
     if(e.key === "Enter") {
-      axios(apiurl + "&s=" + state.s).then((data)=>{
+      axios(apiurl + state.s).then(({data})=>{
+        let results = data.items;
+        
+        setState(prevState => {
+          return{...prevState, results:results} 
+        })
         console.log(data);
+      
+        
       });
     }
   }
@@ -29,22 +38,75 @@ function App() {
     );
     console.log(state.s);
   }
+  if(state.results.length >0){
+    return(
+    <div className="">
+          <Results results = {state.results}
+          query={state.s}/>
+          
+          </div>
+    );
+    
+  }
+  else{
+
+
+  
   return (
     <div className="App">
       <header className="App-header">
-      <div id="container">
-    
-        <div className="g_image" >
-        <img src="img/google-logo.png" height="95" width="260"   alt=" google logo "/>
-          </div>
-        </div>
+        <nav className="clearfix">
+            <ul className="left">
+              
+            </ul>
+
+            <ul className="right">
+              <li><a href="#">Gmail</a></li>
+              <li><a href="#">Images</a></li>
+              <li className="menu"><a href="#">Menu</a></li>
+              
+              <li className="profile-pic"><a href="#">Profile Pic</a></li>
+            </ul>
+        </nav>
+        <div className="mainContainer">
+
         
+            <img className="logo" src="img/logo.png" alt="Google Logo" />
+
+            
+
+            
+          </div>
       </header>
+
       <main>
+        
+        
+      
         <Search handleInput= {handleInput} search={search}/>
+        
+        
       </main>
+        <footer>
+        <p className="location">Zimbabwe</p>
+        <nav className="clearfix">
+          <ul className="left">
+            <li><a href="#">Advertising</a></li>
+            <li><a href="#">Business</a></li>
+            <li><a href="#">About</a></li>
+              <li><a href="#">How Search Works</a></li>
+          </ul>
+
+          <ul className="right">
+            <li><a href="#">Privary</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Settings</a></li>
+          </ul>
+        </nav>
+      </footer>
     </div>
   )
+}
 }
 
 export default App

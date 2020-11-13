@@ -1,0 +1,339 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: sans-serif;
+  background-color: white;
+}
+
+header{
+  padding: 50px 15px 0px ;
+}
+
+header h1{
+  color: white;
+  font-size: 48px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.mainContainer{
+	text-align: center;
+	margin-top: 50px;
+	padding: 0 20px;
+}
+main{
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  
+}
+section{
+  padding: 15px;
+}
+
+html, body, div, span,
+h1, h2, h3, h4, h5, h6, p,
+a, ol, ul, li,
+label, footer, header,  
+menu, section {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  position: relative;
+  font: normal 16px arial, sans-serif;
+  padding: 20px 0;
+  height: 100vh;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover { text-decoration: underline; }
+
+.clearfix::before,
+.clearfix::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.left { float: left; }
+.right { float: right; }
+
+
+/* NAV */
+
+header {
+  margin: 0 20px;
+  line-height: 32px;
+}
+
+nav { font-size: 13px; }
+
+nav li {
+  display: inline-block;
+  opacity: .75;
+}
+
+nav li + li { margin-left: 20px; }
+
+.menu a,
+.notifications a,
+.profile-pic a {
+  display: inline-block;
+  text-indent: -9999px;
+  vertical-align: middle;
+}
+
+.menu a,
+.notifications a {
+  opacity: .75;
+}
+
+.menu a:hover,
+.notifications a:hover {
+  opacity: 1;
+}
+
+.profile-pic { opacity: 1; }
+
+.profile-pic a {
+  background: url("/src/images/pp.jpg");
+  height: 32px;
+  width: 32px;
+  border-radius: 100%;
+}
+
+.menu a {
+  background: url("/src/images/sprite.png") -132px -38px;
+  height: 30px;
+  width: 30px;
+}
+
+.notifications a {
+  background: url("/src/images/sprite.png") -194px -21px;
+  background-color: black;
+  border-radius: 100%;
+  height: 20px;
+  width: 20px;
+}
+
+
+/* MAIN */
+
+
+.input {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 10px;
+  box-shadow: 0 2px 10px 1px #e4e4e4;
+  border-radius: 24px;
+}
+
+input {
+  font-size: 16px;
+  vertical-align: middle;
+  width: 90%;
+  height: 30px;
+  padding: 15px 0;
+  border: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.voice {
+  vertical-align: middle;
+  width: 30px;
+  float: right;
+  cursor: pointer;
+}
+
+.buttons {
+  
+}
+
+.buttons button {
+  background: #f2f2f2;
+  color: #757575;
+  font-weight: bold;
+  padding: 15px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  color: black;
+  border: 1px solid #e4e4e4;
+  box-shadow: 0 2px 10px 1px #e4e4e4;
+}
+
+.language { font-size: 13px; }
+.language a { color: blue; }
+
+
+/* FOOTER */
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #f2f2f2;
+  opacity: .75;
+}
+
+.location,
+footer nav {
+  padding: 20px;
+  border-top: 1px solid #e4e4e4;
+  position: relative;
+  justify-content: space-evenly;
+}
+
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 450px) {
+  header .left,
+  header .right {
+    float: none;
+  }
+
+  main { margin-top: 60px; }
+}
+
+.result{
+	font-family: Arial, Helvetica, sans-serif;
+	
+  color: blue;
+
+  margin: 0 0 23px 0;
+  width: 600px;
+
+}
+.resultsWrap{
+  margin-left: 10em;
+  width: 600px;
+
+}
+.result h3{
+	cursor: pointer;
+	font-size: 18px;
+}
+.logo1 {
+  position: absolute;
+  
+  padding: 4px 28px 0 30px;
+  top:1em;
+}
+.small-google-logo{
+  
+  height: 39px;
+  width: 92px;
+    
+}
+.input2{
+ 
+  border-radius: 24px;
+  border: #dedede solid 1px;
+  display: flex;
+  width: 690px;
+  
+  margin: 0 10em;
+}
+.navbar {
+  
+  border-bottom: 1px solid #ebebeb;
+}
+
+.nav {
+  display:block;
+  float: left;
+}
+
+.nav ul {
+  padding:0;
+  margin:0 0 0 0;
+  width:670px;
+}
+
+.nav li {
+  list-style: none;
+  display:inline-block;
+  font-size: small;
+  vertical-align: middle;
+  height:54px;
+  line-height: 54px;
+}
+
+.nav li a {
+  text-decoration: none;
+  color:#777;
+  margin: 0 5px;
+  padding: 19px 8px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.nav li a:visited {
+ text-decoration: none;
+ color:#777;
+}
+
+.av li a:hover {
+  color:#222;
+}
+/*turns first nav blue */
+.nav li a.first-navbar {
+  color:#4285f4;
+  font-weight: bold;
+  border-bottom:3px solid #4285f4;
+}
+
+.inputStyle{
+  background: transparent;
+  padding-left: 5px;
+
+}
+.sug-list{
+  display: block;
+}
+
+.Tlink{
+	color: #4d5156;
+	padding-bottom: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+	cursor: pointer;
+}
+.subLink{
+	color: green;
+}
+p{
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 10px 0 10px;
+	color: #4d5156;
+	font-size: 14px;
+}
+/*api key ....AIzaSyBdDuakr8bKhCrYObc70DhM3_tR-FDXdko*/
+/*<script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>*/
