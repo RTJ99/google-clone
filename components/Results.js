@@ -1,14 +1,41 @@
 import React,{ useState} from 'react'
 import Result from './Result'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import axios from "axios"
+import Suggestions from './Suggestions.jsx';
 
-function Results({ results, query }) {
+function Results({ results, query ,handleInput, search,props}) {
   const [state, setState] = useState(
     {
-      query:query
+      query:query,
+      
+      suggestions:{}
       
     }
   );
+  
+
+  const handleValueChanged = (e) => {
+		let queryText = e.target.value;
+		let fetchedSuggestions = [];
+
+		axios.get("https://suggestqueries.google.com/complete/search?&output=toolbar&hl=EN_US&q=" + queryText)
+			.then(res => {
+				let parser = new DOMParser();
+				let suggestionsXml = parser.parseFromString(res.data, "text/xml");
+				let dataNodes = suggestionsXml.getElementsByTagName("suggestion");
+				
+				for (var x = 0; x < dataNodes.length; x++) {
+					fetchedSuggestions.push(dataNodes[x].getAttribute("data"));
+				}
+
+				setState({query: queryText, suggestions: fetchedSuggestions});
+			});
+
+		setState({query: queryText, suggestions: fetchedSuggestions});
+  };
+  
+  
     return (
         <section className="results">
             
@@ -18,16 +45,16 @@ function Results({ results, query }) {
             </div>
             
             <div className="input2">
-              <input 
-              value={state.query}
+            <input onKeyPress={search} 
+              onChange={handleInput} 
+               
               title="Search" 
-              type="text" 
-              className="inputStyle"
-              />
+              type="text"  value={state.query} onInput={handleValueChanged} />
             
             
         
         </div>
+        
         <div className="resultsWrap">
         <section className="navbar clearfix">
       <nav className="nav">
